@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "graphiql.mapping",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.mapping'"
+  },
+  {
+    "name": "graphiql.endpoint.graphql",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.endpoint.graphql'"
+  },
+  {
+    "name": "graphiql.endpoint.subscriptions",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.endpoint.subscriptions'"
+  },
+  {
+    "name": "graphiql.subscriptions.timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.subscriptions.timeout'"
+  },
+  {
+    "name": "graphiql.static.base-path",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.static.base-path'"
+  },
+  {
+    "name": "graphiql.pageTitle",
+    "type": "java.lang.String",
+    "description": "A description for 'graphiql.pageTitle'"
+  }
+]}

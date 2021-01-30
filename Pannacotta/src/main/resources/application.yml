@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pannacotta
+  datasource:
+    password: marioTheBest
+    url: jdbc:postgresql://localhost:5433/macaroni
+    username: luigi
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        
+server:
+  http2:
+    enabled: true
