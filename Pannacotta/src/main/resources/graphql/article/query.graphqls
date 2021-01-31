@@ -1,5 +1,0 @@
-type Article {
-    articleId: ID!
-    title: String!
-    text: String!
-}

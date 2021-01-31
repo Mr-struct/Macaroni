@@ -8,10 +8,8 @@ import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 
-
 /**
- * @author mr-struct
- * Generic GraphQl Resolver
+ * @author mr-struct Generic GraphQl Resolver
  * @param <Entity>
  */
 @Component

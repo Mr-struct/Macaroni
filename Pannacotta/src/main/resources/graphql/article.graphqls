@@ -1,14 +1,26 @@
 
-type Query {
+input AuthorInput {
+    first_name: String!
+    last_name: String!
+}
+
+type Article {
+    articleId: ID!
+    title: String!
+    text: String!
+    author: Author!
+}
+
+extend type Query {
     # Retrieve an article
     article(id: ID!): Article
     # Retrieve all articles
     articles: [Article]!
 }
- 
-type Mutation {
+
+extend type Mutation {
     # Create an article with the given args
-    createArticle(title: String!, text: String!): Article
+    createArticle(title: String!, text: String!, author: AuthorInput!): Article!
     # Update an article
     updateArticle(id: ID!, title: String!, text: String!): Article
     # Delete an article

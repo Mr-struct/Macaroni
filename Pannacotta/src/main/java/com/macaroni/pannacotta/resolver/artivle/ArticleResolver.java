@@ -10,17 +10,17 @@ import org.springframework.stereotype.Component;
 
 /**
  * Resolver for Article
+ * 
  * @author mr-struct
  *
  */
 @Component
-public class ArticleResolver extends EntityResolver<Article>{
+public class ArticleResolver extends EntityResolver<Article> {
 
 	public ArticleResolver(ArticleRepository repository) {
 		super(repository);
-
 	}
-	
+
 	public Article article(Long id) {
 		return entity(id);
 	}

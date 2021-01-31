@@ -1,0 +1,21 @@
+type Author {
+    authorId: ID!
+    first_name: String!
+    last_name: String!
+}
+
+extend type Query { 
+    # Retrieve an author
+    author(id: ID!): Author
+    # Retrieve all authors
+    authors: [Author]!
+}
+
+extend type Mutation {
+    # Create an author with the given args
+    createAuthor(firstName: String!, lastName: String!): Author!
+    # Update an author
+    updateAuthor(id: ID!, firstName: String!, lastName: String!): Author
+    # Delete an author
+    deleteAuthor(id: ID): Boolean!
+}
