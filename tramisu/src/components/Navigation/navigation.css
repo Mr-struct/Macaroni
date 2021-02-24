@@ -1,0 +1,9 @@
+.navbar {
+    border: none !important;
+    min-height: 0rem !important;
+    padding:0rem !important;
+}
+
+.navbar.is-fixed-bottom {
+    bottom: -4px !important;
+}
