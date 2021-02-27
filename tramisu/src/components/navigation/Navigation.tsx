@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { faIgloo, faSearch, faUserCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import "components/Navigation/navigation.css";
+import "components/navigation/navigation.css";
 
 type ActiveTabs = "music" | "search" | "propfil";
 

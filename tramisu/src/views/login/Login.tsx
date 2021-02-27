@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Login: React.FC = () => {
+	const history = useHistory();
 	return (
 		<div className="section" style={{ marginBottom:10 }}>
 			<div className="column  is-half-desktop is-offset-3-desktop">
@@ -29,7 +31,7 @@ const Login: React.FC = () => {
 					</div>
 					<button className="button is-primary">Login</button>
 				</form>
-				<button className="button is-link is-light is-fullwidth">Sign up</button>
+				<button className="button is-link is-light is-fullwidth" onClick={()=> history.push("/sign-up")}>Sign up</button>
 			</div>
 		</div>);
 };

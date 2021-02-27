@@ -1,4 +1,4 @@
-import StreamCard from "components/streamCard/StreamCard";
+import StreamCard from "components/stream-card/StreamCard";
 import React from "react";
 const Streams = () => (
 	<div className="section">

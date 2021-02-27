@@ -12,7 +12,10 @@ const ThemeSelector: React.FC = () => {
 			<div className="select is-info">
 				<select onChange={({target}) => {
 					themeContext.setTheme(target.value as Theme);
-				}}>
+					localStorage.setItem("macaroniTheme", target.value);
+				}}
+				defaultValue={localStorage.getItem("macaroniTheme") || "default"}
+				>
 					{
 						bulmaThemes.map(theme =>
 							<option key={theme} value={theme}>{theme}</option>
