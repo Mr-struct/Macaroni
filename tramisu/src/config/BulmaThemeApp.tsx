@@ -1,4 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+
+/**
+ * List of bulma theme
+ */
 export const bulmaThemes = [
 	"default",
 	"cerulean",
@@ -29,12 +33,14 @@ export type BulmaThemeAppProps = {
 	theme?: Theme,
 	className?:string,
 }
+
 type context = {
 	theme:Theme,
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	setTheme:(theme:Theme)=> void
 }
-export  const ThemeContext = React.createContext<context>({
+
+export const ThemeContext = React.createContext<context>({
 	theme: "default",
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	setTheme: (theme: Theme) => {}
@@ -43,9 +49,7 @@ export  const ThemeContext = React.createContext<context>({
 
 export const useSelectBulmaTheme = (defaultTheme: Theme) => {
 	const [theme, setTheme] = useState<Theme>(defaultTheme);
-	const setThemeContext = (defaultTheme: Theme) => {
-		setTheme(defaultTheme);
-	};
+	const setThemeContext = (themeContext: Theme) => setTheme(themeContext);
 	return {theme, setThemeContext};
 };
 
