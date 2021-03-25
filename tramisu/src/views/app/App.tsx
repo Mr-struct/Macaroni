@@ -1,52 +1,57 @@
-import React, {useContext} from "react";
-import Navigation from "components/navigation/Navigation";
-import BulmaThemeApp, {Theme, ThemeContext} from "config/BulmaThemeApp";
+import React, { useContext } from "react";
+import BulmaThemeApp, { Context, Theme, ThemeContext } from "react-bulma-theme";
 import useCheckMobileScreen from "tools/useCheckMobileScreen";
-
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 } from "react-router-dom";
-import Streams from "views/streams/Streams";
-import Search from "views/search/Search";
-import Profil from "views/profile/Profil";
-import SignUp from "views/sign-up/SignUp";
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+import Room from "views/room/Room";
+import ThemeSelector from "components/theme-selector/ThemeSelector";
+import Home from "views/home/Home";
+
+const firebaseConfig = {
+	apiKey: "AIzaSyDmdme8T1U_wbHkoto0Ymh06paAj_GN1a4",
+	authDomain: "macaroni-e2318.firebaseapp.com",
+	projectId: "macaroni-e2318",
+	storageBucket: "macaroni-e2318.appspot.com",
+	messagingSenderId: "268080890364",
+	appId: "1:268080890364:web:a0cb5b71f5ba1975a23279",
+	measurementId: "G-RE2LQQGD5H"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+export const fireStore = firebase.firestore();
+
 const App: React.FC = () => {
-	
+
 	const isMobile = useCheckMobileScreen();
-	let topNavigation = null;
-	let bottomNavigation = null;
-	if (isMobile) {
-		bottomNavigation = <Navigation position="is-fixed-bottom"/>;
-	}
-	else {
-		topNavigation = <Navigation position="is-fixed-top"/>;
-	}
-	const themeContext = useContext(ThemeContext);
+
+	const themeContext = useContext<Context>(ThemeContext);
 	const appTheme = localStorage.getItem("macaroniTheme") || "default";
+
 	return (
 		<Router>
-			<ThemeContext.Provider value={{theme: themeContext.theme, setTheme: themeContext.setTheme}} >
+			<ThemeContext.Provider value={{ theme: themeContext.theme, setTheme: themeContext.setTheme }} >
 				<BulmaThemeApp theme={appTheme as Theme}>
-					{topNavigation}
 					<div className="container" style={{ marginTop: isMobile ? 0 : 80 }}>
+						<ThemeSelector />
 						<Switch>
 							<Route exact path="/">
-								<Streams />
+								<Home />
 							</Route>
-							<Route path="/search">
-								<Search/>
-							</Route>
-							<Route path="/profil">
-								<Profil />
-							</Route>
-							<Route path="/sign-up">
-								<SignUp/>
+							<Route path="/room/:roomkey">
+								<Room />
 							</Route>
 						</Switch>
 					</div>
-					{bottomNavigation}
 				</BulmaThemeApp>
 			</ThemeContext.Provider>
 		</Router>);

@@ -1,20 +1,20 @@
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, {useContext} from "react";
-import {bulmaThemes, Theme, ThemeContext} from "config/BulmaThemeApp";
+import React, { useContext } from "react";
+import { bulmaThemes, Context, Theme, ThemeContext } from "react-bulma-theme";
 
 
 
 const ThemeSelector: React.FC = () => {
-	const themeContext = useContext(ThemeContext);
+	const themeContext: Context = useContext(ThemeContext);
 	return (
 		<div className="control has-icons-left">
 			<div className="select is-info">
-				<select onChange={({target}) => {
+				<select onChange={({ target }) => {
 					themeContext.setTheme(target.value as Theme);
 					localStorage.setItem("macaroniTheme", target.value);
 				}}
-				defaultValue={localStorage.getItem("macaroniTheme") || "default"}
+					defaultValue={localStorage.getItem("macaroniTheme") || "default"}
 				>
 					{
 						bulmaThemes.map(theme =>

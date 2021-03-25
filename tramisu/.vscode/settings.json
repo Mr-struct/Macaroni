@@ -3,9 +3,17 @@
   "eslint.lintTask.enable": true,
   "eslint.onIgnoredFiles": "warn",
   "eslint.packageManager": "yarn",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "vscode.typescript-language-features",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "eslint.alwaysShowStatus": true
+  "eslint.alwaysShowStatus": true,
+  "editor.wordWrap": "on",
+  "html.format.wrapAttributesIndentSize": 80,
+  "html.format.wrapLineLength": 80,
+  "workbench.editor.wrapTabs": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.tabCompletion": "on"
 }
