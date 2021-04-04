@@ -47,7 +47,7 @@ const LinkCreation = () => {
       {showModal ?
         <article className="message is-warning">
           <div className="message-header">
-            <p>Error somme required field are messing</p>
+            <p>Error some required fields are missing</p>
             <button className="delete" aria-label="delete" onClick={() => setShowModal(showModal => !showModal)}></button>
           </div>
           <div className="message-body">
@@ -59,7 +59,7 @@ const LinkCreation = () => {
           <div className="control">
             <button className="button is-success is-fullwidth" onClick={() => setShowForm(true)}>
               <FontAwesomeIcon icon={faPlusSquare} size="lg" />
-              <p style={{ marginLeft: 10 }} className="is-3">Add a video/sound to shear</p>
+              <p style={{ marginLeft: 10 }} className="is-3">Add a video/sound to share</p>
             </button>
           </div>
           :
@@ -94,7 +94,7 @@ const LinkCreation = () => {
               <div>
                 <button className="button is-primary is-fullwidth" onClick={creatLink}>
                   <FontAwesomeIcon icon={faShare} size="lg" />
-          Create
+              Create
 				</button>
               </div>
               <br />

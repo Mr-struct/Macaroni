@@ -19,10 +19,10 @@ const Room: React.FC = () => {
   const [ playing, setPlaying ] = useState<boolean>(false);
 
   useEffect(() => {
-    const player = playerRef;
-    if (videos && videos[ 0 ] && player) {
-      if (videos[ 0 ].userActionIp !== userId && player && player && player.current) {
-        player.current.seekTo(videos[ 0 ].playedSeconds);
+    const { current } = playerRef;
+    if (videos && videos[ 0 ] && current) {
+      if (videos[ 0 ].userActionIp !== userId && current !== undefined && current.seekTo) {
+        current?.seekTo(videos[ 0 ].playedSeconds);
         console.log("RECIVE DATA FROM SERVER");
       }
     }
@@ -72,10 +72,10 @@ const Room: React.FC = () => {
               controls
               playsinline
             />
-            : <p>No vidos create</p>}
+            : <h1 className="notification is-danger">No vidos create</h1>}
         </div>
-        <div className="column"><ChatRoom roomKey={roomkey} userId={userId} /></div>
-      </div>
+        {videos && videos[ 0 ] && <div className="column"><ChatRoom roomKey={roomkey} userId={userId} /></div>
+        }</div>
     </div>);
 };
 export default Room;

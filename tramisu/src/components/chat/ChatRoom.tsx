@@ -14,7 +14,7 @@ type ChatRoomProps = {
 const ChatRoom: React.FC<ChatRoomProps> = ({ userId, roomKey }: ChatRoomProps) => {
   const dummy = useRef<HTMLSpanElement>(null);
   const messagesRef = fireStore.collection("messages");
-  const query = messagesRef.orderBy("createdAt").limit(25);
+  const query = messagesRef.orderBy("createdAt");
   const [ messages ] = useCollectionData(query, { idField: "id" });
   const [ formValue, setFormValue ] = useState("");
   const isMobile = useCheckMobileScreen();

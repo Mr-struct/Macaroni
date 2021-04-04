@@ -11,7 +11,11 @@ const Home = () => {
 
   const inputChanges = ({ target }: React.ChangeEvent<HTMLInputElement>) => setRoomKeyInput(target.value);
 
-  const goToRoom = () => history.push("/room/" + roomKeyInput);
+  const goToRoom = () => {
+    if (roomKeyInput && roomKeyInput.length > 0) {
+      history.push("/room/" + roomKeyInput);
+    }
+  };
 
   return (
     <div className="section" style={{ marginBottom: 10 }}>
@@ -29,7 +33,7 @@ const Home = () => {
         <form className="box">
           <div className="field has-addons">
             <div className="control is-expanded">
-              <input className="input" type="text" placeholder="room key hier" onChange={inputChanges} value={roomKeyInput} />
+              <input className="input" type="text" placeholder="room key" onChange={inputChanges} value={roomKeyInput} />
             </div>
             <div className="control">
               <button className="button is-info is-light is-fullwidth" onClick={goToRoom}>
